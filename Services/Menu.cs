@@ -18,6 +18,7 @@ public class Menu
             Console.WriteLine("3. Add a Room");
             Console.WriteLine("4. Add a Character");
             Console.WriteLine("5. Get Character Information");
+            Console.WriteLine("6. Change Character Level");
             Console.WriteLine("9. Exit");
             Console.Write("Enter your choice: ");
 
@@ -39,6 +40,9 @@ public class Menu
                     break;
                 case "5":
                     _gameEngine.FindCharacter();
+                    break;
+                case "6":
+                    _gameEngine.ChangeCharacterLevel();
                     break;
                 case "9":
                     return;
