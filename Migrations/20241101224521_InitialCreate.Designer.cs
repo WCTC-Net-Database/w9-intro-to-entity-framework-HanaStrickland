@@ -11,7 +11,7 @@ using W9_assignment_template.Data;
 namespace W9assignmenttemplate.Migrations
 {
     [DbContext(typeof(GameContext))]
-    [Migration("20241030012154_InitialCreate")]
+    [Migration("20241101224521_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

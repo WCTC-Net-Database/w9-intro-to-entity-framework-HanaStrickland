@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using W9_assignment_template.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace W9_assignment_template.Data;
 
@@ -9,9 +10,16 @@ public class GameContext : DbContext
     public DbSet<Character> Characters { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=StartingEFCore;Trusted_Connection=True;");
-    }
+        {
+            
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection")); 
+            
+        }
 
     // Seed Method
     public void Seed()
